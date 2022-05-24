@@ -5,7 +5,7 @@ const App = () => {
 
   const address = useAddress();
   const connectWithMetamask = useMetamask();
-  console.log("Address", address)
+  console.log("Address", address);
 
  // Initialize our editionDrop contract
   const editionDrop = useEditionDrop("0xB59FCf4914A79EB34DeB9Bd8eaCEB43aD717661B");
@@ -14,13 +14,6 @@ const App = () => {
   // State variable for us to know if user has our NFT.
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const [isClaiming, setIsClaiming] = useState(false);
-
-  useEffect(() => {
-    // If they don't have a connected wallet, exit!
-    if (!address) {
-      return;
-    }
-  });
 
     // Holds the amount of token each member has in state.
   const [memberTokenAmounts, setMemberTokenAmounts] = useState([]);
@@ -77,7 +70,7 @@ const App = () => {
     return(
       <div className="landing">
         <h1> Bem vindo ao pintoDAO</h1>
-        <button className={connectWithMetamask} className="btn-hero">
+        <button onClick={connectWithMetamask} className="btn-hero">
           Conecte sua carteira
         </button>
       </div>
